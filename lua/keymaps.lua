@@ -66,7 +66,7 @@ keymap("n", "<Esc><Esc>", ":<C-u>set nohlsearch<Return>", opts)
 keymap("i", "jk", "<ESC>", opts)
 
 -- コンマの後に自動的にスペースを挿入
-keymap("i", ",", ",<Space>", opts)
+-- keymap("i", ",", ",<Space>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -78,3 +78,14 @@ keymap("v", "v", "$h", opts)
 
 -- 0番レジスタを使いやすくした
 keymap("v", "<C-p>", '"0p', opts)
+
+-- insert mode での移動
+keymap("i", "<C-e>", "<END>", opts)
+keymap("i", "<C-a>", "<HOME>", opts)
+keymap("i", "<C-n>", "<Down>", opts)
+keymap("i", "<C-p>", "<Up>", opts)
+keymap("i", "<C-b>", "<Left>", opts)
+keymap("i", "<C-f>", "<Right>", opts)
+
+-- jqa
+keymap("n", ",r", ":Jaq quickfix<Return>", opts)
