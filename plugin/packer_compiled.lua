@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\yasuc\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["ayu-vim"] = {
+    loaded = true,
+    path = "C:\\Users\\yasuc\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\ayu-vim",
+    url = "https://github.com/ayu-theme/ayu-vim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "C:\\Users\\yasuc\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer",
@@ -108,6 +113,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\yasuc\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["jaq-nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\yasuc\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\jaq-nvim",
+    url = "https://github.com/is0n/jaq-nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
