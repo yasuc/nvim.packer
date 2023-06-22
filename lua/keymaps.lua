@@ -89,3 +89,10 @@ keymap("i", "<C-f>", "<Right>", opts)
 
 -- jqa
 keymap("n", ",r", ":Jaq quickfix<Return>", opts)
+
+-- Telescope-file-browser
+keymap("n", ",fb", ":Telescope file_browser<Return>", opts)
+
+-- Commentary.vim
+keymap("n", ",/", ":Commentary<Return>", opts)
+keymap("v", ",/", ":Commentary<Return>", opts)

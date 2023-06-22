@@ -47,7 +47,6 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use({ "EdenEast/nightfox.nvim" }) -- Color scheme
-	use({ "ayu-theme/ayu-vim" }) -- Color scheme
 
 	use({ "nvim-lualine/lualine.nvim" }) -- Statusline
 	use({ "windwp/nvim-autopairs" }) -- Autopairs, integrates with both cmp and treesitter
@@ -63,14 +62,22 @@ return packer.startup(function(use)
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-nvim-lua" })
 	use({ "hrsh7th/vim-vsnip" })
+	use({ "hrsh7th/cmp-vsnip" })
 	use({ "onsails/lspkind-nvim" })
+
+	use({ "hrsh7th/cmp-nvim-lsp-signature-help" })
+	use({ "hrsh7th/cmp-nvim-lsp-document-symbol" })
+	use({ "hrsh7th/cmp-calc" })
+	use({ "onsails/lspkind.nvim" })
+	use({ "hrsh7th/vim-vsnip-integ" })
+	use({ "rafamadriz/friendly-snippets" })
 
 	-- snippets
 	use({ "L3MON4D3/LuaSnip" }) --snippet engine
 
 	-- LSP
 	use({ "neovim/nvim-lspconfig" }) -- enable LSP
-	--	use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
+	use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
 	use({ "williamboman/mason.nvim" }) --
 	use({ "williamboman/mason-lspconfig.nvim" }) --
 	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
@@ -92,22 +99,33 @@ return packer.startup(function(use)
 	-- jaq
 	use({ "is0n/jaq-nvim" })
 
+	use({ "tpope/vim-commentary" })
+
+	use({ "MunifTanjim/nui.nvim" })
+	use({ "rcarriga/nvim-notify" })
 	-- noice
 	use({
 		"folke/noice.nvim",
 		config = function()
 			require("noice").setup({
-				-- add any options here
+				lsp = {
+					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+					override = {
+						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+						["vim.lsp.util.stylize_markdown"] = true,
+						["cmp.entry.get_documentation"] = true,
+					},
+				},
+				-- you can enable a preset for easier configuration
+				presets = {
+					bottom_search = true, -- use a classic bottom cmdline for search
+					command_palette = true, -- position the cmdline and popupmenu together
+					long_message_to_split = true, -- long messages will be sent to a split
+					inc_rename = false, -- enables an input dialog for inc-rename.nvim
+					lsp_doc_border = false, -- add a border to hover docs and signature help
+				},
 			})
 		end,
-		requires = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
-			"rcarriga/nvim-notify",
-		},
 	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
